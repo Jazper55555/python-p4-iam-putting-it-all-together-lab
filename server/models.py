@@ -44,8 +44,8 @@ class Recipe(db.Model, SerializerMixin):
     __table_args__ = (db.CheckConstraint('length(instructions) >= 50'),)
     
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String)
-    instructions = db.Column(db.String)
+    title = db.Column(db.String, nullable=False)
+    instructions = db.Column(db.String, nullable=False)
     minutes_to_complete = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
